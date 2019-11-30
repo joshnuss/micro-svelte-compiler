@@ -58,7 +58,7 @@ It generates a JavaScript file that looks like this:
 
 ```js
 export default function component({ target, props }) {
-  let { name, foo } = props;
+  let { name } = props;
 
   function handleClick(e) {
     e.preventDefault();
