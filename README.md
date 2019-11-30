@@ -26,10 +26,10 @@ This compiler has multiple stages:
 
 It uses similar dependencies to svelte.js (except for tag parsing).
 
-- [acorn](https://www.npmjs.com/package/acorn): Parses JavaScript text into AST
+- [acorn](https://www.npmjs.com/package/acorn): Parses JavaScript text into AST.
 - [code-red](https://www.npmjs.com/package/code-red): Generates JavaScript AST from template strings. Converts AST back to string.
-- [js-beautify](https://www.npmjs.com/package/js-beautify): Formats JavaScript text
-- [parse5](https://www.npmjs.com/package/parse5): Parses HTML into tags
+- [js-beautify](https://www.npmjs.com/package/js-beautify): Formats JavaScript text.
+- [parse5](https://www.npmjs.com/package/parse5): Parses HTML tags.
 
 ## Usage
 
