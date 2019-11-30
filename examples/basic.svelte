@@ -1,5 +1,5 @@
 <script>
-  export let name, foo;
+  export let name;
 
   function handleClick(e) {
     e.preventDefault()
