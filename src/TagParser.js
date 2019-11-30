@@ -45,6 +45,8 @@ const TagParser = {
   },
 
   addText (nodes, index, parent, value) {
+    if (index === 0 && value.trim() === '') return index
+
     nodes.push({
       index,
       type: 'text',
