@@ -1,6 +1,6 @@
 # Micro Svelte Compiler
 
-A demonstration of how [Svelte.js](https://svelte.dev) works under the hood.
+A demonstration of how the [Svelte.js](https://svelte.dev) compiler works under the hood.
 
 ## Installation
 
