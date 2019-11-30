@@ -65,38 +65,32 @@ export default function component({ target, props }) {
     alert(`Hello ${name}!`);
   }
 
-  let t0, e1, t2, b3, t4, t5;
+  let e0, t1, b2, t3;
 
   return {
     create() {
-      t0 = document.createTextNode("\n\n")
-      e1 = document.createElement("h1")
-      t2 = document.createTextNode("Hello ")
-      b3 = document.createTextNode(name)
-      t4 = document.createTextNode("!")
-      t5 = document.createTextNode("\n")
+      e0 = document.createElement("h1")
+      t1 = document.createTextNode("Hello ")
+      b2 = document.createTextNode(name)
+      t3 = document.createTextNode("!")
 
-      e1.setAttribute("class", "snazzy")
-      e1.addEventListener("click", handleClick)
+      e0.setAttribute("class", "snazzy")
+      e0.addEventListener("click", handleClick)
     },
     mount() {
-      e1.appendChild(t2)
-      e1.appendChild(b3)
-      e1.appendChild(t4)
+      e0.appendChild(t1)
+      e0.appendChild(b2)
+      e0.appendChild(t3)
 
-      target.append(t0)
-      target.append(e1)
-      target.append(t5)
+      target.append(e0)
     },
     update(changes) {
       if (changes.name) {
-        b3.data = name = changes.name
+        b2.data = name = changes.name
       }
     },
     detach() {
-      target.removeChild(t0)
-      target.removeChild(e1)
-      target.removeChild(t5)
+      target.removeChild(e0)
     }
   };
 }
