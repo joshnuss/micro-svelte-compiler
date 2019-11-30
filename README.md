@@ -13,12 +13,12 @@ cd micro-svelte-compiler && yarn
 
 ## Compiler Stages
 
-The compiler has multiple stages:
+This compiler has multiple stages:
 
 1. Parse the file and extract code from `<script>` tags and build a list of non-`<script>` tags.
 2. Parse the code and determine props (anything with `export let ...` is a prop)
-3. Parse the tags and make and ordered list of nodes and event listeners
-4. Generate the code using the lists of props, nodes, listeners and code from script tags
+3. Parse the tags recursively and make an ordered list of nodes and event listeners
+4. Generate the code using the props list, node list, listener list and code from script tags
 5. Format the code
 6. Print the code to `stdout`
 
