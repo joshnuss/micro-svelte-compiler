@@ -48,7 +48,7 @@ Say you have a `.svelte` file like `examples/basic.svelte`:
 <h1 class="snazzy" on:click=handleClick>Hello {name}!</h1>
 ```
 
-And run the compiler on it:
+Run the compiler on it:
 
 ```bash
 msv examples/basic.svelte > examples/basic.js
@@ -96,7 +96,7 @@ export default function component({ target, props }) {
 }
 ```
 
-Now you can host this component in the browser:
+To host the component in the browser:
 
 ```html
 <script src="example/basic.js"></script>
@@ -108,10 +108,10 @@ Now you can host this component in the browser:
   // mount DOM nodes
   c.mount()
 
-  // later you can update props:
+  // you can update props anytime:
   c.update({name: "Elon Musk"})
 
-  // and unmount works too
+  // and cleanup the dom when it's no longer needed
   c.detach()
 </script>
 ```
