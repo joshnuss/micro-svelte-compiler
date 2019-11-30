@@ -4,7 +4,7 @@ A demonstration of how [Svelte.js](https://svelte.dev) works under the hood.
 
 ## Installation
 
-Download and install dependencies
+Download and install dependencies:
 
 ```bash
 git clone https://github.com/joshnuss/micro-svelte-compiler
@@ -15,8 +15,8 @@ cd micro-svelte-compiler && yarn
 
 The compiler has multiple stages:
 
-1. Parse the file and extract code from `<script>` tags and a list of tags.
-2. Parse the code and determine props (anything with `export let ...`)
+1. Parse the file and extract code from `<script>` tags and build a list of non-`<script>` tags.
+2. Parse the code and determine props (anything with `export let ...` is a prop)
 3. Parse the tags and make and ordered list of nodes and event listeners
 4. Generate the code using the lists of props, nodes, listeners and code from script tags
 5. Format the code
@@ -27,7 +27,7 @@ The compiler has multiple stages:
 It uses similar dependencies to svelte.js (except for tag parsing).
 
 - [acorn](https://www.npmjs.com/package/acorn): Parses JavaScript text into AST
-- [code-red](https://www.npmjs.com/package/code-red): Generates JavaScript AST from template strings
+- [code-red](https://www.npmjs.com/package/code-red): Generates JavaScript AST from template strings. Converts AST back to string.
 - [js-beautify](https://www.npmjs.com/package/js-beautify): Formats JavaScript text
 - [parse5](https://www.npmjs.com/package/parse5): Parses HTML into tags
 
