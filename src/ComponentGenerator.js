@@ -32,8 +32,8 @@ const ComponentGenerator = {
           ${roots.map(node => `target.removeChild(${varNames[node.index]})`).join('\n')}
         }
       }
-    }
-    `
+    }`
+
     return print(ast).code
   },
 
