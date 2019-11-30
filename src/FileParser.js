@@ -3,7 +3,7 @@ import { readFileSync } from 'fs'
 
 const FileParser = {
   readFile(path) {
-    const source = readFileSync(process.argv[2], { encoding: "utf8" })
+    const source = readFileSync(path, { encoding: "utf8" })
     const fragment = parseFragment(source)
 
     return this.extract(fragment)
