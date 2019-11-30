@@ -3,8 +3,8 @@ import { b, print } from 'code-red'
 const ComponentGenerator = {
   generate (props, nodes, listeners, rest) {
     const varNames = nodes.map(node => ([node.type[0], node.index].join('')))
-    const roots = nodes.filter(node => !node.parent)
-    const children = nodes.filter(node => node.parent)
+    const roots = nodes.filter(node => node.parent === null)
+    const children = nodes.filter(node => node.parent !== null)
     const bindings = nodes.filter(node => node.type === 'binding')
 
     const ast = b`
