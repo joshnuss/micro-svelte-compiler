@@ -1,0 +1,9 @@
+{
+  "name": "msv",
+  "version": "0.0.1",
+  "description": "Tiny clone of Svelte.js",
+  "main": "index.js",
+  "repository": "https://github.com/joshnuss/msv",
+  "author": "Josh Nussbaum",
+  "license": "MIT"
+}
