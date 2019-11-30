@@ -1,8 +1,8 @@
-import { parse as acornParse } from 'acorn'
+import { parse } from 'acorn'
 
 const ScriptParser = {
   parse (source) {
-    const ast = acornParse(source, { sourceType: 'module' })
+    const ast = parse(source, { sourceType: 'module' })
 
     return this.walk(ast)
   },
