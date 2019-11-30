@@ -7,8 +7,8 @@ A demonstration of how [Svelte.js](https://svelte.dev) works under the hood.
 Download and install dependencies
 
 ```bash
-git clone https://github.com/joshnuss/msv
-cd msv && yarn
+git clone https://github.com/joshnuss/micro-svelte-compiler
+cd micro-svelte-compiler && yarn
 ```
 
 ## Compiler Stages
