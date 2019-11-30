@@ -1,28 +1,28 @@
 import { parse as acornParse } from 'acorn'
 
 const ScriptParser = {
-  parse(source) {
-    const ast = acornParse(source, {sourceType: 'module'})
+  parse (source) {
+    const ast = acornParse(source, { sourceType: 'module' })
 
     return this.walk(ast)
   },
 
-  walk(ast) {
+  walk (ast) {
     const props = []
     const rest = []
 
     ast.body.forEach(declaration => {
-      if (declaration.type == 'ExportNamedDeclaration') {
+      if (declaration.type === 'ExportNamedDeclaration') {
         this.addExport(props, declaration.declaration)
       } else {
         rest.push(declaration)
       }
     })
 
-    return {props, rest}
+    return { props, rest }
   },
 
-  addExport(props, variableDeclaration) {
+  addExport (props, variableDeclaration) {
     variableDeclaration.declarations.forEach(decl => {
       props.push(decl.id.name)
     })

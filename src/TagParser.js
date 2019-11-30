@@ -1,16 +1,16 @@
 const TagParser = {
-  parse(tags) {
+  parse (tags) {
     const nodes = []
     const listeners = []
 
     this.parseTags(nodes, listeners, null, 0, tags)
 
-    return {nodes, listeners}
+    return { nodes, listeners }
   },
 
-  parseTags(nodes, listeners, parent, index, tags) {
+  parseTags (nodes, listeners, parent, index, tags) {
     tags.forEach(tag => {
-      if (tag.nodeName == '#text') {
+      if (tag.nodeName === '#text') {
         index = this.parseText(nodes, index, parent, tag)
       } else {
         index = this.parseElement(nodes, listeners, index, parent, tag)
@@ -20,17 +20,17 @@ const TagParser = {
     return index
   },
 
-  parseText(nodes, index, parent, tag) {
+  parseText (nodes, index, parent, tag) {
     let text = tag.value
-    let startBracket, endBracket;
+    let startBracket, endBracket
 
-    while(true) {
-      startBracket = text.search("{")
+    while (true) {
+      startBracket = text.search('{')
 
-      if (startBracket == 0) {
-        endBracket = text.search("}")
-        index = this.addBinding(nodes, index, parent, text.substr(1, endBracket-1))
-        text = text.substr(endBracket+1)
+      if (startBracket === 0) {
+        endBracket = text.search('}')
+        index = this.addBinding(nodes, index, parent, text.substr(1, endBracket - 1))
+        text = text.substr(endBracket + 1)
         if (!text) break
       } else if (startBracket < 0) {
         index = this.addText(nodes, index, parent, text)
@@ -44,29 +44,29 @@ const TagParser = {
     return index
   },
 
-  addText(nodes, index, parent, value) {
+  addText (nodes, index, parent, value) {
     nodes.push({
       index,
-      type: "text",
+      type: 'text',
       value,
-      parent,
+      parent
     })
 
     return index + 1
   },
 
-  addBinding(nodes, index, parent, name) {
+  addBinding (nodes, index, parent, name) {
     nodes.push({
       index,
-      type: "binding",
+      type: 'binding',
       name,
-      parent,
+      parent
     })
 
     return index + 1
   },
 
-  parseElement(nodes, listeners, index, parent, tag) {
+  parseElement (nodes, listeners, index, parent, tag) {
     const attrs = {}
 
     tag.attrs.forEach(attr => {
@@ -83,13 +83,13 @@ const TagParser = {
 
     nodes.push({
       index,
-      type: "element",
+      type: 'element',
       attrs,
       name: tag.nodeName,
-      parent,
+      parent
     })
 
-    return this.parseTags(nodes, listeners, index, index+1, tag.childNodes)
+    return this.parseTags(nodes, listeners, index, index + 1, tag.childNodes)
   }
 }
 
