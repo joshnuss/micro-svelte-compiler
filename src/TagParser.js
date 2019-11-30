@@ -4,6 +4,7 @@ const TagParser = {
     const listeners = []
 
     this.parseTags(nodes, listeners, null, 0, tags)
+    this.removeTrailingWhitespace(nodes)
 
     return { nodes, listeners }
   },
@@ -92,6 +93,18 @@ const TagParser = {
     })
 
     return this.parseTags(nodes, listeners, index, index + 1, tag.childNodes)
+  },
+
+  removeTrailingWhitespace (nodes) {
+    let i = nodes.length - 1
+    let node = nodes[i]
+
+    while (node.parent === null && node.type === 'text' && node.value.trim() === '') {
+      nodes.splice(i, 1)
+
+      i -= 1
+      node = nodes[i]
+    }
   }
 }
 
