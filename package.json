@@ -6,6 +6,9 @@
   "repository": "https://github.com/joshnuss/msv",
   "author": "Josh Nussbaum",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "bin": {
     "msv": "./cli.js"
   },
