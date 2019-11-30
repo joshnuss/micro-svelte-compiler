@@ -5,5 +5,13 @@
   "main": "index.js",
   "repository": "https://github.com/joshnuss/msv",
   "author": "Josh Nussbaum",
-  "license": "MIT"
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
+  "devDependencies": {
+    "babel-preset-latest": "^6.24.1"
+  }
 }
