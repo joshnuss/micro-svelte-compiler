@@ -19,6 +19,11 @@
     "babel-preset-latest": "^6.24.1",
     "code-red": "^0.0.26",
     "eslint": "^6.7.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "estree-walker": "^1.0.0",
     "js-beautify": "^1.10.2",
     "parse5": "^5.1.1"
