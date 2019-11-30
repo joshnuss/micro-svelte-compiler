@@ -13,23 +13,23 @@ cd msv && yarn
 
 ## Compiler Stages
 
-The compiler has multiple stages
+The compiler has multiple stages:
 
-1. Parse the file and extract code from `<script>` tags and a list of tags.
-2. Parse the code and determine props (anything with `export let ...`)
-3. Parse the tags and make and ordered list of nodes and event listeners
-4. Generate the code using the lists of props, nodes, listeners and code from script tags
-5. Format the code
-6. Print to code to `stdout`
+1. **Parse the file** and extract code from `<script>` tags and a list of tags.
+2. **Parse the code** and determine props (anything with `export let ...`)
+3. **Parse the tags** and make and ordered list of nodes and event listeners
+4. **Generate the code** using the lists of props, nodes, listeners and code from script tags
+5. **Format the code**
+6. **Print the code** to `stdout`
 
 ## Dependencies
 
-This uses the same dependencies as svelte.js, except for tag parsing.
+It uses similar dependencies to svelte.js, except for tag parsing.
 
-- [acorn](https://www.npmjs.com/package/acorn) parses JavaScript text into AST
-- [code-red](https://www.npmjs.com/package/code-red) generates JavaScript AST from template strings
-- [js-beautify](https://www.npmjs.com/package/js-beautify) formats JavaScript text
-- [parse5](https://www.npmjs.com/package/parse5) parses HTML into tags
+- [acorn](https://www.npmjs.com/package/acorn): Parses JavaScript text into AST
+- [code-red](https://www.npmjs.com/package/code-red): Generates JavaScript AST from template strings
+- [js-beautify](https://www.npmjs.com/package/js-beautify): Formats JavaScript text
+- [parse5](https://www.npmjs.com/package/parse5): Parses HTML into tags
 
 ## Usage
 
@@ -54,7 +54,7 @@ And run the compiler on it:
 msv examples/basic.svelte > examples/basic.js
 ```
 
-It generates a JavaScript version of the component:
+It generates a JavaScript file that looks like this:
 
 ```js
 export default function component({ target, props }) {
@@ -102,21 +102,24 @@ export default function component({ target, props }) {
 }
 ```
 
-Now you can run this in the browser:
+Now you can host this component in the browser:
 
-```js
-// instantiate the component with target node and props
-const c = component({target: document.body, props: {name: "Steve Wozniak"}})
-// create DOM nodes
-c.create()
-// mount DOM nodes
-c.mount()
+```html
+<script src="example/basic.js"></script>
+<script>
+  // instantiate the component with a target node and some props
+  const c = component({target: document.body, props: {name: "Steve Wozniak"}})
+  // create DOM nodes
+  c.create()
+  // mount DOM nodes
+  c.mount()
 
-// later you can update props:
-c.update({name: "Elon Musk"})
+  // later you can update props:
+  c.update({name: "Elon Musk"})
 
-// if you want to unmount
-c.detach()
+  // and unmount works too
+  c.detach()
+</script>
 ```
 
 ## License
