@@ -6,6 +6,9 @@
   "repository": "https://github.com/joshnuss/msv",
   "author": "Josh Nussbaum",
   "license": "MIT",
+  "bin": {
+    "msv": "./cli.js"
+  },
   "babel": {
     "presets": [
       "latest"
