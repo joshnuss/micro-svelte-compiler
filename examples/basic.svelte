@@ -7,4 +7,4 @@
   }
 </script>
 
-<h1 class="foo" on:click=handleClick>Hello {name}!</h1>
+<h1 class="snazzy" on:click=handleClick>Hello {name}!</h1>
