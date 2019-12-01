@@ -15,16 +15,16 @@ cd micro-svelte-compiler && yarn
 
 This compiler has multiple stages:
 
-1. Parse the file and extract code from `<script>` tags and build a list of non-`<script>` tags.
+1. Parse the `.svelte` file and extract code from `<script>` tags and build a list of non-`<script>` tags.
 2. Parse the code and determine props (anything with `export let ...` is a prop)
 3. Parse the tags recursively and make an ordered list of nodes and event listeners
-4. Generate the code using props, nodes, listeners, and code from script tags
-5. Format the code
+4. Generate JavaScript code using props, nodes, listeners, and code from script tags
+5. Format the JavaScript code
 6. Print the result to `stdout`
 
 ## Dependencies
 
-It uses similar dependencies to svelte.js (except for tag parsing).
+It uses similar dependencies to svelte.js (except for HTML parsing).
 
 - [acorn](https://www.npmjs.com/package/acorn): Parses JavaScript text into AST.
 - [code-red](https://www.npmjs.com/package/code-red): Generates JavaScript AST from template strings. Converts AST back to string.
