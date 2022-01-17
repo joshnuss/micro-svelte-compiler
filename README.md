@@ -51,7 +51,7 @@ Say you have a `.svelte` file like `examples/basic.svelte`:
 Run the compiler on it:
 
 ```bash
-msv examples/basic.svelte > examples/basic.js
+npx msv examples/basic.svelte > examples/basic.js
 ```
 
 It generates a JavaScript file that looks like this:
